@@ -1,0 +1,21 @@
+{
+   "LiftNames":["Benchpress"],
+   "Lifts":{
+       "0":{
+            "LiftID":"0",
+            "LiftName":"Benchpress",
+            "LiftReps":"0",
+            "LiftSets":"0",
+            "LiftFailure":"false"
+        },
+        "1":{
+            "LiftID":"0",
+            "LiftName":"Benchpress",
+            "LiftReps":"0",
+            "LiftSets":"0",
+            "LiftFailure":"false"
+        }
+       
+   }
+}
+  
