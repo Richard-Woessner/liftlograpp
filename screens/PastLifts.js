@@ -10,21 +10,25 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
   const PastLifts = () => {
-    const [data, setData] = React.useState(null)
+    const [data, setData] = React.useState('')
     const getData = async () => {
-        try {
-            const keys = await AsyncStorage.getAllKeys()
-            const value = await AsyncStorage.multiGet(keys)   
-          if (value !== null) {
-            console.log(value);
-            setData(value)
-            //alert(data)
-            return value;
-          }
-        } catch (e) {
-          // error reading value  
+      try {
+        const value = await AsyncStorage.getItem("lifts");
+        if (value !== null) {
+          var strArray = value.split("-");
+          let lifts = [];
+          // Display array values on page
+          for(var i = 0; i < strArray.length; i++){
+            lifts.push(JSON.parse(strArray[i]));
         }
+          console.log(lifts);
+          setData(lifts)
+        }
+      } catch (e) {
+        console.log(e);
       }
+    };
+    
     useEffect(() => {   
         getData();
     });
@@ -33,7 +37,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
             <SafeAreaProvider>
                 <ThemeProvider>
                 <View >
-                    <div><pre>{data}</pre></div>
+                    <div><pre>{JSON.stringify(data, null, 5)}</pre></div>
                 </View>
                 </ThemeProvider>
             </SafeAreaProvider>
