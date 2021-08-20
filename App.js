@@ -3,10 +3,12 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Button, ThemeProvider, Input, Text, Header } from 'react-native-elements';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import { NavigationContainer } from '@react-navigation/native';
+import {NavigationContainer } from '@react-navigation/native';
 import HomeScreen from './screens/HomeScreen'
 import SettingsScreen from './screens/SettingsScreen'
 import PastLifts from './screens/PastLifts';
+import Lifts from './screens/Lifts';
+
 
 
 
@@ -28,6 +30,7 @@ export default function App(props) {
       <Drawer.Navigator initialRouteName="Home" >
         <Drawer.Screen name="Home" component={HomeScreen} options={{title: 'LiftLogr'}}/>
         <Drawer.Screen name="PastLifts" component={PastLifts}/>
+        <Drawer.Screen name="LiftsEdit" component={Lifts}/>
         <Drawer.Screen name="Notifications" component={NotificationsScreen} />
       </Drawer.Navigator>
     </NavigationContainer>
